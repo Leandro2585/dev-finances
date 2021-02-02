@@ -179,7 +179,13 @@ const listen = {
   },
   total() {
     listen.config();
-    utterance.text = "O seu saldo total é de "+ utils.formatCurrency(Transaction.total());
+    const balance = utils.formatCurrency(Transaction.total());
+    utterance.text = "O seu saldo total é de "+ balance;
+
+    if(balance.indexOf("-") === 0){
+      utterance.text = utterance.text + "negativo";
+    }
+
     speechSynthesis.speak(utterance);
   }
 }
