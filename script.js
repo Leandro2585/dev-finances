@@ -13,7 +13,7 @@ const Storage = {
     return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
   },
   set(transactions) {
-    localStorage.setItem("dev.finances:transactions", JSON.stringfy(transactions));
+    localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions));
   }
 }
 
@@ -167,12 +167,11 @@ const app = {
     Transaction.all.forEach(DOM.addTransaction);
     DOM.updateBalance();
 
-    Storage.set(Transaction.all());
+    Storage.set(Transaction.all);
   },
   reload() {
     DOM.clearTransactions();
     app.init();
   }
 }
-
 app.init();
