@@ -161,7 +161,28 @@ const form = {
     }
   }
 };
+const listen = {
+  config() {
+    utterance = new SpeechSynthesisUtterance();
+    utterance.lang = "pt-BR";
+  },
+  income() {
+    listen.config();
 
+    utterance.text = "A sua receita equivale a "+ utils.formatCurrency(Transaction.incomes());
+    speechSynthesis.speak(utterance);
+  },
+  expense() {
+    listen.config();
+    utterance.text = "As suas despesas totalizam "+ utils.formatCurrency(Transaction.expenses());
+    speechSynthesis.speak(utterance);
+  },
+  total() {
+    listen.config();
+    utterance.text = "O seu saldo total é de "+ utils.formatCurrency(Transaction.total());
+    speechSynthesis.speak(utterance);
+  }
+}
 const app = {
   init() {
     Transaction.all.forEach(DOM.addTransaction);
