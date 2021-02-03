@@ -1,4 +1,3 @@
-<h1 align="center">Dev Finances</h1>
 <p align="center"><img src="./assets/logo.svg" width="50%" alt="logo"/></p>
 <h2 title="Páginas">📌 Sobre</h2>
 <p align="left">
